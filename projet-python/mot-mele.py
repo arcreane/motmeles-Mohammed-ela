@@ -64,7 +64,7 @@ def verif_mot(liste_mot):
     
     
     
-    liste_mots = ["SALUT","CHIEN","CHAT"]
+    liste_mots = ["JAVA","","PHP","PYTHON"]
 
     
 # end def
