@@ -9,14 +9,14 @@ Level = input("Facile \t Moyen \t Difficile \n Tapez votre niveau de jeu :")
 
 
 if (Level=="Facile"):
-    Longueur = 5 
+    Longueur = 10
     Hauteur = 5
 if (Level=="Moyen"):
-    Longueur = 10
-    Hauteur = 10
+    Longueur = 15
+    Hauteur = 7
 if (Level=="Difficile"):
-    Longueur = 20
-    Hauteur = 20
+    Longueur = 30
+    Hauteur = 15
 if (Level!="Facile" and Level!="Moyen" and Level!="Difficile"): 
     print('Erreur de la selection de niveau ! , veuillez relancer votre jeu et réessayer')
     quit()
@@ -37,8 +37,11 @@ def ajout_mot(liste_mots,grille):
 # les 2 variables vont forcement rentrer dans la grille car leur valeur sera inferieur a la longueur de la grille sauf si le mot commence a l'extremité de la grille
  
     taille_x = Longueur if direction[0] == 0 else Longueur - len(liste_mots) 
-    taille_y = random.randrange(0,taille_x)
+    taille_y = Hauteur if direction[1] == 0 else Hauteur - len(liste_mots)
+    global x,y
+    x = random.randrange(0,taille_x)
     y = random.randrange(0,taille_y)
+    
 # Ajouton notre mot au hasard dans la grille
 
     for i in range(0,len(liste_mots)):
@@ -47,31 +50,50 @@ def ajout_mot(liste_mots,grille):
         
     return grille
 #fin de la fonction
-
 # initialisation de la liste de mot a trouver dans une liste 
-liste_mots = ["JAVA","","PHP","PYTHON"]
-for mot in liste_mots:
-
-    grille = ajout_mot(mot,grille)
-
-
+reponse = []
+if Level == 'Facile':
+    liste_mots = ["WEB","PHP","SQL","BUG","BIT","IP"]
+    for mot in liste_mots:
+        grille = ajout_mot(mot,grille)
+        reponse.append(mot)
+        reponse.append(x)
+        reponse.append(y)
+        
+if Level == 'Moyen':
+    liste_mots = ["PATCHS","PYTHON","JAVA","ASCII"]
+    for mot in liste_mots:
+        grille = ajout_mot(mot,grille)
+        reponse.append(mot)
+        reponse.append(x)
+        reponse.append(y)
+if Level == 'Difficile':
+    liste_mots = ["JAVASCRIPT","VULNERABILITE","CYBERATTAQUE","ALGORITHMIE"]
+    for mot in liste_mots:
+        grille = ajout_mot(mot,grille)
+        reponse.append(mot)
+        reponse.append(x)
+        reponse.append(y)
 #----------------------------------------------------------
-
-def verif_mot(liste_mot):
-    mot = input ("entrer le mot: ")
-    cordonne_x = input("entrer la cordonnée X: ")
-    cordonne_y = input("entrer la cordonnée y: ")
-    
-    
-    
-    liste_mots = ["JAVA","","PHP","PYTHON"]
-
-    
-# end def
-
-
-
-
-
 print("\n".join(map(lambda row: "  ".join(row), grille)))
-print("voici la liste de mot a trouver : ",liste_mots)
+print("voici la liste de mot à trouver : ",liste_mots)
+#-----------------------------------------------------------
+    
+mot = input ("le mot à chercher : ")
+if mot  in liste_mots :
+    print("True,ce mot",mot,"est bien dans la liste","cordonnee sont:",reponse)
+else:
+    print("False,ce mot",mot,"n'est pas dans la liste")
+
+
+# cordonne_x = input("entrer la cordonnée X: ")
+# cordonne_y = input("entrer la cordonnée y: ")
+
+
+
+
+
+
+
+
+
