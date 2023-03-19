@@ -63,13 +63,22 @@ print("\n".join(map(lambda row: "  ".join(row), grille)))
 print("voici la liste de mot à trouver : ",liste_mots)
 #-----------------------------------------------------------
 mot=input("Rentrez le mot que vous avez trouvé: ")
-cordo_x=input("Rentrez la cordonnée x (horizontale): ")
-cordo_y=input("Rentrez la cordonnée y (verticale): ")
+print(reponse)
+if verif_mot(mot,liste_mots):
+     print("Le mot",mot,"est présent dans la liste.")
+else:
+    print("Le mot",mot,"n'est pas présent dans la liste, veuillez verifier votre mot")
+    exit()
+
+cordo_x=int(input("Rentrez la cordonnée x (horizontale): "))
+cordo_y=int(input("Rentrez la cordonnée y (verticale): "))
 taille=input("Rentrez la taille du mot: ")
-verif_mot(mot,reponse,cordo_x,cordo_y,taille)
-
-
-
+# Vérifie si les coordonnées correspondent au mot dans la grille
+if verif_coord(mot,reponse,cordo_x, cordo_y):
+    
+    print("BIEN JOUER ! Les coordonnées correspondent bien au mot dans la grille.")
+else:
+    print("Les coordonnées ne correspondent pas au mot dans la grille.")
 
 
 

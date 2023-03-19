@@ -26,8 +26,19 @@ choix_lvl(Level)
 # on parcour la hauteur et largeur grace au 'for in range' 
 grille = [[random.choice(string.ascii_uppercase) for i in range(0,Longueur)] for j in range(0,Hauteur)]
 
-def verif_mot(mot,reponse,cordo_x,cordo_y,taille): 
-    print(reponse)   
-    
+def verif_mot(mot, liste_mots):
+    for i in liste_mots:
+        if mot in i:
+            return True
+    return False
+
+def verif_coord(mot,reponse,cordo_x,cordo_y):
     for i in reponse:
-        print(i)
+        
+        if mot==reponse[0] and cordo_x==reponse[1] and cordo_y==reponse[2]:
+            return True
+        else:
+            return False
+
+        
+
