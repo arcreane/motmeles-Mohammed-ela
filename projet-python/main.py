@@ -1,6 +1,6 @@
 import string
 import random
-import colorama
+from termcolor import colored
 from functions import*
 # handle = open(r'C:\Users\Mohammed\Desktop\mot-mele\projet-python\mots.txt')
 # liste_mots = handle.readline(4)
@@ -74,11 +74,10 @@ cordo_x=int(input("Rentrez la cordonnée x (horizontale): "))
 cordo_y=int(input("Rentrez la cordonnée y (verticale): "))
 taille=input("Rentrez la taille du mot: ")
 # Vérifie si les coordonnées correspondent au mot dans la grille
-if verif_coord(mot,reponse,cordo_x, cordo_y):
-    
+if verif_coord(mot,reponse,cordo_x, cordo_y,taille):
     print("BIEN JOUER ! Les coordonnées correspondent bien au mot dans la grille.")
 else:
-    print("Les coordonnées ne correspondent pas au mot dans la grille.")
+    print("Les coordonnées ou la taille ne correspondent pas au mot dans la grille.")
 
 
 

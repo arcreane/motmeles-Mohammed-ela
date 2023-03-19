@@ -32,10 +32,10 @@ def verif_mot(mot, liste_mots):
             return True
     return False
 
-def verif_coord(mot,reponse,cordo_x,cordo_y):
+def verif_coord(mot,reponse,cordo_x,cordo_y,taille):
     for i in reponse:
         
-        if mot==reponse[0] and cordo_x==reponse[1] and cordo_y==reponse[2]:
+        if mot==reponse[0] and cordo_x==reponse[1] and cordo_y==reponse[2] and taille=='3' or mot==reponse[3] and cordo_x==reponse[4] and cordo_y==reponse[5] and taille=='3' or mot==reponse[6] and cordo_x==reponse[7] and cordo_y==reponse[8] and taille=='3' or mot==reponse[9] and cordo_x==reponse[10] and cordo_y==reponse[11] and taille=='3' or mot==reponse[12] and cordo_x==reponse[13] and cordo_y==reponse[14] and taille=='3' or mot==reponse[15] and cordo_x==reponse[16] and cordo_y==reponse[17] and taille=='2':  
             return True
         else:
             return False
