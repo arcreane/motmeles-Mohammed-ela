@@ -1,29 +1,10 @@
 import string
 import random
 import colorama
-
+from functions import*
 # handle = open(r'C:\Users\Mohammed\Desktop\mot-mele\projet-python\mots.txt')
 # liste_mots = handle.readline(4)
 
-Level = input("Facile \t Moyen \t Difficile \n Tapez votre niveau de jeu :")
-
-
-if (Level=="Facile"):
-    Longueur = 10
-    Hauteur = 5
-if (Level=="Moyen"):
-    Longueur = 15
-    Hauteur = 7
-if (Level=="Difficile"):
-    Longueur = 30
-    Hauteur = 15
-if (Level!="Facile" and Level!="Moyen" and Level!="Difficile"): 
-    print('Erreur de la selection de niveau ! , veuillez relancer votre jeu et réessayer')
-    quit()
-   
-# Creation de la grille (liste) et danslaquelle on va generer des lettres en majuscule au hasard a l'interieur en fonction de la hauteur et largeur qu’on a choisie
-# on parcour la hauteur et largeur grace au 'for in range' 
-grille = [[random.choice(string.ascii_uppercase) for i in range(0,Longueur)] for j in range(0,Hauteur)]
  
 #Fonction pour ajouter un mot dans la grille !
 def ajout_mot(liste_mots,grille):
@@ -54,8 +35,11 @@ def ajout_mot(liste_mots,grille):
 reponse = []
 if Level == 'Facile':
     liste_mots = ["WEB","PHP","SQL","BUG","BIT","IP"]
+        #parcour de la liste 
     for mot in liste_mots:
+        #Appel de la fonction ajout_mot pour rajouter les mots 1 par 1
         grille = ajout_mot(mot,grille)
+        #ajout les solutions dans une autre liste qu'on a precedemment appelle : reponse[]
         reponse.append(mot)
         reponse.append(x)
         reponse.append(y)
@@ -78,16 +62,12 @@ if Level == 'Difficile':
 print("\n".join(map(lambda row: "  ".join(row), grille)))
 print("voici la liste de mot à trouver : ",liste_mots)
 #-----------------------------------------------------------
-    
-mot = input ("le mot à chercher : ")
-if mot  in liste_mots :
-    print("True,ce mot",mot,"est bien dans la liste","cordonnee sont:",reponse)
-else:
-    print("False,ce mot",mot,"n'est pas dans la liste")
+mot=input("Rentrez le mot que vous avez trouvé: ")
+cordo_x=input("Rentrez la cordonnée x (horizontale): ")
+cordo_y=input("Rentrez la cordonnée y (verticale): ")
+taille=input("Rentrez la taille du mot: ")
+verif_mot(mot,reponse,cordo_x,cordo_y,taille)
 
-
-# cordonne_x = input("entrer la cordonnée X: ")
-# cordonne_y = input("entrer la cordonnée y: ")
 
 
 
