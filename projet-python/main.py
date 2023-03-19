@@ -11,11 +11,11 @@ def ajout_mot(liste_mots,grille):
 #On choisie aleatoirement de prendre le prendre le mot normalement ou de le prendre de maniere inverser 
     liste_mots = random.choice([liste_mots,liste_mots[::-1]]) 
 
-# On met en place la direction qui sera choisie aleatoirement => en ligne ou en hauteur  (pas de diagonale)
+#On met en place la direction qui sera choisie aleatoirement => en ligne ou en hauteur  (pas de diagonale)
     direction = random.choice([[1,0],[0,1]])
-
-# verifions si la longueur du mot si elle rentre dans la grille ! verticalement ou horizontalement
-# les 2 variables vont forcement rentrer dans la grille car leur valeur sera inferieur a la longueur de la grille sauf si le mot commence a l'extremité de la grille
+    
+#Verifions si la longueur du mot si elle rentre dans la grille ! verticalement ou horizontalement
+#Les 2 variables vont forcement rentrer dans la grille car leur valeur sera inferieur a la longueur de la grille sauf si le mot commence a l'extremité de la grille
  
     taille_x = Longueur if direction[0] == 0 else Longueur - len(liste_mots) 
     taille_y = Hauteur if direction[1] == 0 else Hauteur - len(liste_mots)
@@ -23,7 +23,7 @@ def ajout_mot(liste_mots,grille):
     x = random.randrange(0,taille_x)
     y = random.randrange(0,taille_y)
     
-# Ajouton notre mot au hasard dans la grille
+# Ajoutons notre mot au hasard dans la grille
 
     for i in range(0,len(liste_mots)):
         
@@ -72,16 +72,15 @@ else:
 
 cordo_x=int(input("Rentrez la cordonnée x (horizontale): "))
 cordo_y=int(input("Rentrez la cordonnée y (verticale): "))
-taille=input("Rentrez la taille du mot: ")
 # Vérifie si les coordonnées correspondent au mot dans la grille
-if verif_coord(mot,reponse,cordo_x, cordo_y,taille):
+if verif_coord(mot,reponse,cordo_x, cordo_y):
     print("BIEN JOUER ! Les coordonnées correspondent bien au mot dans la grille.")
     liste_mots.remove(mot)
-    colored_list = colorize_element_in_list(grille,mot, "red")
+    colored_list = mot_colorie(mot,grille,"red")
     print("\n".join(map(lambda row: "  ".join(row), grille)))
     print("voici la liste de mot à trouver : ",liste_mots)
 else:
-    print("Les coordonnées ou la taille ne correspondent pas au mot dans la grille.")
+    print("Les coordonnées ne correspondent pas au mot dans la grille.")
 
 
 

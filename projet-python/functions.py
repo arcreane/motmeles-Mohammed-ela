@@ -35,16 +35,15 @@ def verif_mot(mot, liste_mots):
 def verif_coord(mot,reponse,cordo_x,cordo_y,taille):
     for i in reponse:
         
-        if mot==reponse[0] and cordo_x==reponse[1] and cordo_y==reponse[2] and taille=='3' or mot==reponse[3] and cordo_x==reponse[4] and cordo_y==reponse[5] and taille=='3' or mot==reponse[6] and cordo_x==reponse[7] and cordo_y==reponse[8] and taille=='3' or mot==reponse[9] and cordo_x==reponse[10] and cordo_y==reponse[11] and taille=='3' or mot==reponse[12] and cordo_x==reponse[13] and cordo_y==reponse[14] and taille=='3' or mot==reponse[15] and cordo_x==reponse[16] and cordo_y==reponse[17] and taille=='2':  
+        if mot==reponse[0] and cordo_x==reponse[1] and cordo_y==reponse[2] or mot==reponse[3] and cordo_x==reponse[4] and cordo_y==reponse[5] or mot==reponse[6] and cordo_x==reponse[7] and cordo_y==reponse[8] or mot==reponse[9] and cordo_x==reponse[10] and cordo_y==reponse[11] or mot==reponse[12] and cordo_x==reponse[13] and cordo_y==reponse[14] or mot==reponse[15] and cordo_x==reponse[16] and cordo_y==reponse[17]:  
             return True
         else:
             return False
         
-def colorize_element_in_list(lst, element, color):
-    """Met en couleur un élément au sein d'une liste."""
-    for i, item in enumerate(lst):
-        if item == element:
-            lst[i] = colored(item, color)
-    return lst
-        
+def mot_colorie(mot,grille,color):
+    # Créer une nouvelle liste avec les éléments colorisés
+    color="red"
+    for i in grille:
+      
+        return colored(mot,color)
 
