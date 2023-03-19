@@ -76,6 +76,10 @@ taille=input("Rentrez la taille du mot: ")
 # Vérifie si les coordonnées correspondent au mot dans la grille
 if verif_coord(mot,reponse,cordo_x, cordo_y,taille):
     print("BIEN JOUER ! Les coordonnées correspondent bien au mot dans la grille.")
+    liste_mots.remove(mot)
+    colored_list = colorize_element_in_list(grille,mot, "red")
+    print("\n".join(map(lambda row: "  ".join(row), grille)))
+    print("voici la liste de mot à trouver : ",liste_mots)
 else:
     print("Les coordonnées ou la taille ne correspondent pas au mot dans la grille.")
 

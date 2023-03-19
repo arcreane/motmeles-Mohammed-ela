@@ -1,6 +1,6 @@
 import random
 import string
-
+from termcolor import colored
 def choix_lvl(Level):
     
     global Longueur
@@ -39,6 +39,12 @@ def verif_coord(mot,reponse,cordo_x,cordo_y,taille):
             return True
         else:
             return False
-
+        
+def colorize_element_in_list(lst, element, color):
+    """Met en couleur un élément au sein d'une liste."""
+    for i, item in enumerate(lst):
+        if item == element:
+            lst[i] = colored(item, color)
+    return lst
         
 
