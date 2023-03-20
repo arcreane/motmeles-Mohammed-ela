@@ -1,6 +1,8 @@
 import random
 import string
 from termcolor import colored
+
+#premiere fonction qui permet le choix du niveau de jeu
 def choix_lvl(Level):
     
     global Longueur
@@ -40,10 +42,9 @@ def verif_coord(mot,reponse,cordo_x,cordo_y):
         else:
             return False
         
-def mot_colorie(mot,grille,color):
-    # Créer une nouvelle liste avec les éléments colorisés
-    color="red"
-    for i in grille:
-      
-        return colored(mot,color)
-
+def couleur_element(grille,mot):
+   for i in grille:
+        #    index = grille.index(mot)
+        #    grille[index] = colored(mot, 'red')
+        # grille[0][0]= colored(mot,'red')
+        colored(mot,'red')
